@@ -781,3 +781,73 @@ body {
     padding: 19px 13px !important;
   }
 }
+/* ========================================
+   ERリマインド案内
+======================================== */
+
+.cood-remind {
+  margin-top: 14px;
+  padding: 20px 22px;
+  background: #f1f7f3;
+  border: 1px solid #e3eee6;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.cood-remind-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 9px;
+}
+
+.cood-remind-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.cood-remind-title h3 {
+  margin: 0;
+  color: #65796d;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cood-remind-description {
+  margin: 0 0 15px;
+  color: #718078;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.cood-remind-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 17px;
+  background: #e4efe7;
+  border: 1px solid #d5e5d9;
+  border-radius: 9px;
+  color: #64816e;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cood-remind-button:hover {
+  background: #d9e9de;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .cood-remind {
+    padding: 17px 16px;
+  }
+
+  .cood-remind-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
