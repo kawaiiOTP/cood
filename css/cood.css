@@ -715,3 +715,69 @@ body {
   }
 
 }
+/* ========================================
+   COOD / EVENT SECTION BLOCK
+   各セクションを白いパネルにする
+======================================== */
+
+.cood-section {
+  padding: 30px 32px !important;
+  margin: 0 0 30px !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #eeeaf2;
+  border-radius: 18px;
+
+  box-shadow: 0 5px 20px rgba(85, 83, 106, 0.045);
+
+  box-sizing: border-box;
+}
+
+/* セクション見出し */
+.cood-section .section-heading {
+  margin-bottom: 20px;
+}
+
+/* クーポン案内 */
+.cood-section .cood-howto {
+  background: #faf8fc;
+}
+
+/* 各カード一覧 */
+.cood-section .cood-card-grid {
+  margin-top: 0;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+  .cood-section {
+    padding: 26px 24px !important;
+    margin-bottom: 25px !important;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .cood-section {
+    padding: 22px 17px !important;
+    margin-bottom: 22px !important;
+    border-radius: 15px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .cood-section {
+    padding: 19px 13px !important;
+  }
+}
