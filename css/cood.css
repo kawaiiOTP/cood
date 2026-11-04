@@ -851,3 +851,22 @@ body {
     box-sizing: border-box;
   }
 }
+/* ========================================
+   COOD内の各ブロックの間隔を統一
+======================================== */
+
+/* クーポン入力方法とERリマインド */
+.cood-howto {
+  margin-bottom: 22px !important;
+}
+
+/* ERリマインド */
+.cood-remind {
+  margin-top: 0 !important;
+  margin-bottom: 22px !important;
+}
+
+/* ERリマインドとクーポン一覧 */
+.cood-remind + .cood-card-grid {
+  margin-top: 22px !important;
+}
