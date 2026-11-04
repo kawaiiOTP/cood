@@ -1,3 +1,4 @@
+
 (() => {
   "use strict";
 
@@ -19,6 +20,7 @@
   const coodList = document.getElementById("cood-list");
   const eventList = document.getElementById("event-list");
 
+  // 件数表示はHTMLから削除されていても動作する
   const coodCount = document.getElementById("cood-count");
   const eventCount = document.getElementById("event-count");
 
@@ -105,6 +107,14 @@
 
     const text = await response.text();
 
+    // Google Sheets側のエラーページなどを検出
+    if (
+      /^\s*<!doctype html/i.test(text) ||
+      /^\s*<html/i.test(text)
+    ) {
+      throw new Error("CSVではなくHTMLが返されました。公開設定を確認してください。");
+    }
+
     return parseCSV(text);
   }
 
@@ -119,13 +129,15 @@
 
     const text = String(value).trim();
 
-    // ISO形式など、タイムゾーンが明示されている場合
+    // タイムゾーンが明示されている場合
     if (/[zZ]$|[+-]\d{2}:\d{2}$/.test(text)) {
       const date = new Date(text);
+
       return Number.isNaN(date.getTime()) ? null : date;
     }
 
     // YYYY/MM/DD または YYYY-MM-DD
+    // 時刻は省略可能
     const match = text.match(
       /^(\d{4})[/-](\d{1,2})[/-](\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?$/
     );
@@ -150,6 +162,7 @@
       return Number.isNaN(date.getTime()) ? null : date;
     }
 
+    // その他の日付形式
     const fallback = new Date(text);
 
     return Number.isNaN(fallback.getTime()) ? null : fallback;
@@ -489,7 +502,11 @@
   ======================================== */
 
   document.addEventListener("click", async event => {
-    const button = event.target.closest(".cood-code-copy");
+    const target = event.target;
+
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest(".cood-code-copy");
 
     if (!button) return;
 
@@ -499,9 +516,9 @@
 
     const action = button.querySelector(".cood-code-copy__action");
 
-    try {
-      await navigator.clipboard.writeText(code);
+    if (!action) return;
 
+    const showCopied = () => {
       action.innerHTML = `
         <span class="material-symbols-rounded">check</span>
         COPIED
@@ -517,6 +534,11 @@
 
         button.classList.remove("is-copied");
       }, 1800);
+    };
+
+    try {
+      await navigator.clipboard.writeText(code);
+      showCopied();
 
     } catch (error) {
       // Clipboard APIが使えない場合の代替処理
@@ -535,17 +557,7 @@
       textarea.remove();
 
       if (copied) {
-        action.innerHTML = `
-          <span class="material-symbols-rounded">check</span>
-          COPIED
-        `;
-
-        setTimeout(() => {
-          action.innerHTML = `
-            <span class="material-symbols-rounded">content_copy</span>
-            COPY
-          `;
-        }, 1800);
+        showCopied();
       } else {
         action.textContent = "コピーできません";
       }
@@ -558,6 +570,11 @@
   ======================================== */
 
   async function loadCood() {
+    if (!coodList) {
+      console.warn("COOD表示先 #cood-list が見つかりません。");
+      return;
+    }
+
     try {
       const items = await fetchCSV(COOD_CSV_URL);
 
@@ -585,7 +602,10 @@
         </div>
       `;
 
-      coodCount.textContent = `${activeItems.length} ITEMS`;
+      // 件数表示がHTMLに存在する場合だけ更新
+      if (coodCount) {
+        coodCount.textContent = `${activeItems.length} ITEMS`;
+      }
 
     } catch (error) {
       console.error("COOD読み込みエラー:", error);
@@ -597,7 +617,9 @@
         </div>
       `;
 
-      coodCount.textContent = "ERROR";
+      if (coodCount) {
+        coodCount.textContent = "ERROR";
+      }
     }
   }
 
@@ -607,6 +629,11 @@
   ======================================== */
 
   async function loadEvent() {
+    if (!eventList) {
+      console.warn("EVENT表示先 #event-list が見つかりません。");
+      return;
+    }
+
     try {
       const items = await fetchCSV(EVENT_CSV_URL);
 
@@ -639,7 +666,10 @@
         </div>
       `;
 
-      eventCount.textContent = `${activeItems.length} ITEMS`;
+      // 件数表示がHTMLに存在する場合だけ更新
+      if (eventCount) {
+        eventCount.textContent = `${activeItems.length} ITEMS`;
+      }
 
     } catch (error) {
       console.error("EVENT読み込みエラー:", error);
@@ -651,7 +681,9 @@
         </div>
       `;
 
-      eventCount.textContent = "ERROR";
+      if (eventCount) {
+        eventCount.textContent = "ERROR";
+      }
     }
   }
 
@@ -671,10 +703,15 @@
 
   init();
 
-  // カウントダウン更新
+
+  /* ========================================
+     AUTO UPDATE
+  ======================================== */
+
+  // カウントダウンを30秒ごとに更新
   setInterval(updateCountdowns, 30000);
 
-  // ページを開いたままにしていても終了済みデータを非表示にする
+  // 60秒ごとにデータを再取得し、終了済み情報を非表示にする
   setInterval(() => {
     loadCood();
     loadEvent();
