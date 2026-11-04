@@ -1,4 +1,3 @@
-
 (() => {
   "use strict";
 
@@ -239,19 +238,23 @@
 
   /* ========================================
      URL VALIDATION
+     Absolute URL and relative path supported.
   ======================================== */
 
   function safeURL(value) {
     if (!value) return "";
 
     try {
-      const url = new URL(value);
+      // 相対パスは現在のページを基準に絶対URLへ変換
+      const url = new URL(String(value).trim(), document.baseURI);
 
+      // HTTP・HTTPS以外は許可しない
       if (url.protocol !== "https:" && url.protocol !== "http:") {
         return "";
       }
 
       return url.href;
+
     } catch {
       return "";
     }
