@@ -6,25 +6,52 @@
 
 
 /* ========================================
+   PAGE SCROLL
+   共通CSSのスクロール制限を解除
+======================================== */
+
+html {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* ========================================
    MAIN LAYOUT
    1カラムレイアウト
 ======================================== */
 
 .cood-main {
+  display: block;
   width: 100%;
   min-width: 0;
-  min-height: calc(100vh - var(--topbar-h, 66px) - var(--bottombar-h, 92px));
+  min-height: 100vh;
   margin: 0 auto;
+  padding-top: calc(var(--topbar-h, 66px) + 20px);
+  padding-bottom: calc(var(--bottombar-h, 92px) + 30px);
   box-sizing: border-box;
 }
 
+/* 共通CSSのスクロールコンテナ設定を解除 */
 .cood-main .content-frame {
+  display: block;
   width: 100%;
   max-width: none;
   min-width: 0;
   height: auto;
-  min-height: calc(100vh - var(--topbar-h, 66px) - var(--bottombar-h, 92px));
+  min-height: 0;
+  max-height: none;
   margin: 0 auto;
+  padding: 0;
   overflow: visible;
   box-sizing: border-box;
 }
@@ -33,7 +60,7 @@
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 42px 42px 70px;
+  padding: 20px 42px 50px;
   box-sizing: border-box;
   color: var(--ink, #55536a);
 }
@@ -41,47 +68,39 @@
 
 /* ========================================
    HERO
+   SKIN ARCHIVE風のシンプルな見出し
 ======================================== */
 
 .cood-hero {
   position: relative;
-  overflow: hidden;
-  padding: 65px 30px 58px;
-  margin-bottom: 65px;
-  text-align: center;
-  border: 1px solid rgba(163, 139, 189, 0.15);
-  border-radius: 24px;
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(223, 241, 251, 0.95),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(249, 229, 239, 0.95),
-      transparent 45%
-    ),
-    linear-gradient(135deg, #f8f6fb, #fdfbfe);
+  overflow: visible;
+  padding: 18px 0 30px;
+  margin-bottom: 45px;
+  text-align: left;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .cood-hero .eyebrow {
   display: block;
-  margin: 0 0 13px;
+  margin: 0 0 10px;
   color: var(--lavender, #a38bbd);
   font-family: "DM Sans", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
 }
 
 .cood-hero-title {
   margin: 0;
   color: var(--ink, #55536a);
   font-family: "DM Sans", sans-serif;
-  font-size: clamp(30px, 5vw, 48px);
+  font-size: clamp(25px, 3vw, 34px);
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
 }
 
 .cood-hero-title span {
@@ -90,36 +109,19 @@
 }
 
 .cood-hero-description {
-  margin: 17px 0 0;
+  margin: 12px 0 0;
   color: var(--muted, #9290a3);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.8;
 }
 
 .cood-hero .text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 25px;
+  display: none;
 }
 
+/* 飾りは非表示 */
 .cood-hero .hero-decoration {
-  position: absolute;
-  color: var(--lavender, #a38bbd);
-  pointer-events: none;
-  opacity: 0.65;
-}
-
-.cood-hero .decor-one {
-  top: 24%;
-  left: 12%;
-  font-size: 22px;
-}
-
-.cood-hero .decor-two {
-  right: 13%;
-  bottom: 22%;
-  font-size: 28px;
+  display: none;
 }
 
 
@@ -128,16 +130,16 @@
 ======================================== */
 
 .cood-section {
-  margin-bottom: 75px;
-  scroll-margin-top: 95px;
+  margin-bottom: 65px;
+  scroll-margin-top: 100px;
 }
 
 .cood-section .section-heading {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 17px;
-  padding-bottom: 17px;
+  gap: 16px;
+  padding-bottom: 15px;
   margin-bottom: 18px;
   border-bottom: 1px solid var(--line, #eeeaf2);
 }
@@ -146,19 +148,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
   border-radius: 50%;
   background: #f2edf7;
   color: var(--lavender, #a38bbd);
   font-family: "DM Sans", sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .cood-section .section-heading .eyebrow {
-  margin: 0 0 5px;
+  margin: 0 0 4px;
   color: var(--lavender, #a38bbd);
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
@@ -170,7 +172,7 @@
   margin: 0;
   color: var(--ink, #55536a);
   font-family: "DM Sans", sans-serif;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -180,31 +182,6 @@
   color: var(--muted, #9290a3);
   font-size: 12px;
   line-height: 1.8;
-}
-
-
-/* ========================================
-   LIST HEADING
-======================================== */
-
-.cood-list-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  padding-bottom: 11px;
-  margin-bottom: 17px;
-  border-bottom: 1px solid var(--line, #eeeaf2);
-  color: var(--muted, #9290a3);
-  font-family: "DM Sans", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-}
-
-.cood-list-heading span:last-child {
-  color: var(--lavender, #a38bbd);
-  white-space: nowrap;
 }
 
 
@@ -538,17 +515,16 @@
 @media (max-width: 850px) {
 
   .cood-page {
-    padding: 30px 24px 55px;
+    padding: 20px 24px 45px;
   }
 
   .cood-hero {
-    padding: 48px 22px 42px;
-    margin-bottom: 50px;
-    border-radius: 20px;
+    padding-top: 15px;
+    margin-bottom: 38px;
   }
 
   .cood-section {
-    margin-bottom: 60px;
+    margin-bottom: 55px;
   }
 
   .cood-card-grid {
@@ -565,39 +541,39 @@
 
 @media (max-width: 600px) {
 
+  .cood-main {
+    padding-top: calc(var(--topbar-h, 66px) + 12px);
+    padding-bottom: calc(var(--bottombar-h, 92px) + 20px);
+  }
+
   .cood-page {
-    padding: 20px 16px 45px;
+    padding: 15px 16px 35px;
   }
 
   .cood-hero {
-    padding: 42px 18px 35px;
-    margin-bottom: 45px;
-    border-radius: 18px;
+    padding: 12px 0 25px;
+    margin-bottom: 35px;
+  }
+
+  .cood-hero-title {
+    font-size: 27px;
   }
 
   .cood-hero-description {
     font-size: 11px;
   }
 
-  .cood-hero .decor-one {
-    left: 7%;
-  }
-
-  .cood-hero .decor-two {
-    right: 7%;
-  }
-
   .cood-section {
-    margin-bottom: 55px;
+    margin-bottom: 48px;
   }
 
   .cood-section .section-heading h2 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .cood-section .section-number {
-    width: 37px;
-    height: 37px;
+    width: 35px;
+    height: 35px;
   }
 
   .cood-card-grid {
@@ -607,10 +583,6 @@
 
   .cood-card__body {
     padding: 17px;
-  }
-
-  .cood-list-heading {
-    font-size: 9px;
   }
 
   .cood-howto {
@@ -632,7 +604,7 @@
   }
 
   .cood-hero-title {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   .cood-hero-description {
