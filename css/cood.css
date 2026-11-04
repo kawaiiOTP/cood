@@ -1,0 +1,520 @@
+/* ========================================
+   KAWORIA — COOD / EVENT
+   Page Styles
+======================================== */
+
+.cood-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 34px 42px 70px;
+  box-sizing: border-box;
+  color: var(--ink, #55536a);
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.cood-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 55px 30px 48px;
+  margin-bottom: 65px;
+  text-align: center;
+  border: 1px solid rgba(163, 139, 189, 0.15);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(223, 241, 251, 0.95),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(249, 229, 239, 0.95),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #f8f6fb, #fdfbfe);
+}
+
+.cood-hero__eyebrow {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--lavender, #a38bbd);
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.cood-hero h1 {
+  margin: 0;
+  color: var(--ink, #55536a);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.cood-hero h1 span {
+  color: var(--lavender, #a38bbd);
+  font-weight: 400;
+}
+
+.cood-hero p {
+  margin: 17px 0 0;
+  color: var(--muted, #9290a3);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.cood-hero__decoration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  margin-top: 23px;
+  color: var(--lavender, #a38bbd);
+  opacity: 0.65;
+}
+
+.cood-hero__decoration span:nth-child(2) {
+  font-size: 20px;
+}
+
+
+/* ========================================
+   SECTION
+======================================== */
+
+.cood-section {
+  margin-bottom: 75px;
+  scroll-margin-top: 95px;
+}
+
+.cood-section__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding-bottom: 17px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line, #eeeaf2);
+}
+
+.cood-section__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--lavender, #a38bbd);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.cood-section__heading h2 {
+  margin: 0;
+  color: var(--ink, #55536a);
+  font-family: "DM Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.cood-section__count {
+  padding: 6px 12px;
+  border-radius: 30px;
+  background: #f2edf7;
+  color: var(--lavender, #a38bbd);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.cood-section__description {
+  margin: 0 0 22px;
+  color: var(--muted, #9290a3);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   HOW TO
+======================================== */
+
+.cood-howto {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 19px;
+  margin-bottom: 25px;
+  border: 1px solid #e9e1f0;
+  border-radius: 13px;
+  background: #faf8fc;
+}
+
+.cood-howto > .material-symbols-rounded {
+  color: var(--lavender, #a38bbd);
+  font-size: 21px;
+}
+
+.cood-howto strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink, #55536a);
+  font-size: 12px;
+}
+
+.cood-howto p {
+  margin: 0;
+  color: var(--muted, #9290a3);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   CARD GRID
+======================================== */
+
+.cood-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.cood-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line, #eeeaf2);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(85, 83, 106, 0.035);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cood-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(85, 83, 106, 0.08);
+}
+
+.cood-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8f2fa, #f8eaf1);
+}
+
+.cood-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cood-card__image--empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(163, 139, 189, 0.6);
+  font-size: 30px;
+}
+
+.cood-card__body {
+  padding: 19px 20px 20px;
+}
+
+.cood-card__title {
+  margin: 0 0 9px;
+  color: var(--ink, #55536a);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.cood-card__description {
+  margin: 0 0 17px;
+  color: var(--muted, #9290a3);
+  font-size: 11px;
+  line-height: 1.9;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   EVENT STATUS
+======================================== */
+
+.cood-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  margin-bottom: 12px;
+  border-radius: 30px;
+  background: #f2edf7;
+  color: var(--lavender, #a38bbd);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cood-card__status--live {
+  background: #edf6ef;
+  color: #708b67;
+}
+
+.cood-card__status--upcoming {
+  background: #eef5fb;
+  color: #7899b7;
+}
+
+
+/* ========================================
+   COUPON CODE
+======================================== */
+
+.cood-code-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted, #9290a3);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.cood-code-copy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px dashed #c9b8dc;
+  border-radius: 10px;
+  background: #faf8fc;
+  color: var(--ink, #55536a);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.cood-code-copy:hover {
+  background: #f3edf8;
+}
+
+.cood-code-copy__value {
+  min-width: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
+}
+
+.cood-code-copy__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  color: var(--lavender, #a38bbd);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cood-code-copy__action .material-symbols-rounded {
+  font-size: 16px;
+}
+
+
+/* ========================================
+   DATE / COUNTDOWN
+======================================== */
+
+.cood-card__date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 13px;
+  margin-top: 15px;
+  border-radius: 10px;
+  background: #f8f7fa;
+}
+
+.cood-card__date-label {
+  color: var(--muted, #9290a3);
+  font-size: 10px;
+}
+
+.cood-card__date-value {
+  color: var(--ink, #55536a);
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.cood-card__countdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  margin-top: 8px;
+  border-top: 1px solid #ece8f0;
+}
+
+.cood-card__countdown-label {
+  color: var(--muted, #9290a3);
+  font-size: 10px;
+}
+
+.cood-card__countdown-value {
+  color: var(--lavender, #a38bbd);
+  font-family: "DM Sans", "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+
+/* ========================================
+   OFFICIAL LINK
+======================================== */
+
+.cood-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.cood-card__official {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--lavender, #a38bbd);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cood-card__official:hover {
+  opacity: 0.65;
+}
+
+.cood-card__official .material-symbols-rounded {
+  font-size: 15px;
+}
+
+
+/* ========================================
+   EMPTY / LOADING / ERROR
+======================================== */
+
+.cood-loading,
+.cood-empty,
+.cood-error {
+  grid-column: 1 / -1;
+  padding: 38px 20px;
+  border: 1px dashed #e5ddea;
+  border-radius: 15px;
+  color: var(--muted, #9290a3);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.cood-empty {
+  background: #faf9fc;
+}
+
+.cood-error {
+  color: #bd7b8a;
+  background: #fff8fa;
+}
+
+
+/* ========================================
+   BOTTOM MESSAGE
+======================================== */
+
+.cood-bottom-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 10px 5px;
+  color: var(--muted, #9290a3);
+}
+
+.cood-bottom-message span {
+  color: var(--lavender, #a38bbd);
+}
+
+.cood-bottom-message p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 850px) {
+
+  .cood-page {
+    padding: 20px 17px 45px;
+  }
+
+  .cood-hero {
+    padding: 42px 18px 35px;
+    margin-bottom: 45px;
+    border-radius: 18px;
+  }
+
+  .cood-hero p {
+    font-size: 11px;
+  }
+
+  .cood-section {
+    margin-bottom: 55px;
+  }
+
+  .cood-section__heading h2 {
+    font-size: 24px;
+  }
+
+  .cood-card-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .cood-card__body {
+    padding: 17px;
+  }
+
+  .cood-bottom-message {
+    gap: 9px;
+  }
+
+  .cood-bottom-message p {
+    font-size: 10px;
+  }
+
+}
