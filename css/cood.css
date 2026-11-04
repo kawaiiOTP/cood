@@ -1,13 +1,39 @@
+
 /* ========================================
    KAWORIA — COOD / EVENT
    Page Styles
 ======================================== */
 
+
+/* ========================================
+   MAIN LAYOUT
+   1カラムレイアウト
+======================================== */
+
+.cood-main {
+  width: 100%;
+  min-width: 0;
+  min-height: calc(100vh - var(--topbar-h, 66px) - var(--bottombar-h, 92px));
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cood-main .content-frame {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: auto;
+  min-height: calc(100vh - var(--topbar-h, 66px) - var(--bottombar-h, 92px));
+  margin: 0 auto;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
 .cood-page {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 34px 42px 70px;
+  padding: 42px 42px 70px;
   box-sizing: border-box;
   color: var(--ink, #55536a);
 }
@@ -20,7 +46,7 @@
 .cood-hero {
   position: relative;
   overflow: hidden;
-  padding: 55px 30px 48px;
+  padding: 65px 30px 58px;
   margin-bottom: 65px;
   text-align: center;
   border: 1px solid rgba(163, 139, 189, 0.15);
@@ -39,9 +65,9 @@
     linear-gradient(135deg, #f8f6fb, #fdfbfe);
 }
 
-.cood-hero__eyebrow {
+.cood-hero .eyebrow {
   display: block;
-  margin-bottom: 13px;
+  margin: 0 0 13px;
   color: var(--lavender, #a38bbd);
   font-family: "DM Sans", sans-serif;
   font-size: 11px;
@@ -49,7 +75,7 @@
   letter-spacing: 0.22em;
 }
 
-.cood-hero h1 {
+.cood-hero-title {
   margin: 0;
   color: var(--ink, #55536a);
   font-family: "DM Sans", sans-serif;
@@ -58,30 +84,42 @@
   letter-spacing: 0.07em;
 }
 
-.cood-hero h1 span {
+.cood-hero-title span {
   color: var(--lavender, #a38bbd);
   font-weight: 400;
 }
 
-.cood-hero p {
+.cood-hero-description {
   margin: 17px 0 0;
   color: var(--muted, #9290a3);
   font-size: 13px;
   line-height: 1.8;
 }
 
-.cood-hero__decoration {
-  display: flex;
-  justify-content: center;
+.cood-hero .text-link {
+  display: inline-flex;
   align-items: center;
-  gap: 13px;
-  margin-top: 23px;
+  gap: 8px;
+  margin-top: 25px;
+}
+
+.cood-hero .hero-decoration {
+  position: absolute;
   color: var(--lavender, #a38bbd);
+  pointer-events: none;
   opacity: 0.65;
 }
 
-.cood-hero__decoration span:nth-child(2) {
-  font-size: 20px;
+.cood-hero .decor-one {
+  top: 24%;
+  left: 12%;
+  font-size: 22px;
+}
+
+.cood-hero .decor-two {
+  right: 13%;
+  bottom: 22%;
+  font-size: 28px;
 }
 
 
@@ -94,19 +132,33 @@
   scroll-margin-top: 95px;
 }
 
-.cood-section__heading {
+.cood-section .section-heading {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 17px;
   padding-bottom: 17px;
   margin-bottom: 18px;
   border-bottom: 1px solid var(--line, #eeeaf2);
 }
 
-.cood-section__eyebrow {
-  display: block;
-  margin-bottom: 5px;
+.cood-section .section-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #f2edf7;
+  color: var(--lavender, #a38bbd);
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cood-section .section-heading .eyebrow {
+  margin: 0 0 5px;
   color: var(--lavender, #a38bbd);
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
@@ -114,7 +166,7 @@
   letter-spacing: 0.18em;
 }
 
-.cood-section__heading h2 {
+.cood-section .section-heading h2 {
   margin: 0;
   color: var(--ink, #55536a);
   font-family: "DM Sans", sans-serif;
@@ -123,23 +175,36 @@
   letter-spacing: 0.08em;
 }
 
-.cood-section__count {
-  padding: 6px 12px;
-  border-radius: 30px;
-  background: #f2edf7;
-  color: var(--lavender, #a38bbd);
-  font-family: "DM Sans", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
-.cood-section__description {
+.cood-section .section-text {
   margin: 0 0 22px;
   color: var(--muted, #9290a3);
   font-size: 12px;
   line-height: 1.8;
+}
+
+
+/* ========================================
+   LIST HEADING
+======================================== */
+
+.cood-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 11px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid var(--line, #eeeaf2);
+  color: var(--muted, #9290a3);
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.cood-list-heading span:last-child {
+  color: var(--lavender, #a38bbd);
+  white-space: nowrap;
 }
 
 
@@ -159,6 +224,7 @@
 }
 
 .cood-howto > .material-symbols-rounded {
+  flex-shrink: 0;
   color: var(--lavender, #a38bbd);
   font-size: 21px;
 }
@@ -449,26 +515,47 @@
 
 
 /* ========================================
-   BOTTOM MESSAGE
+   CONTENT FOOTER
 ======================================== */
 
-.cood-bottom-message {
+.cood-page .content-footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
   padding: 25px 10px 5px;
   color: var(--muted, #9290a3);
 }
 
-.cood-bottom-message span {
+.cood-page .footer-sparkle {
   color: var(--lavender, #a38bbd);
 }
 
-.cood-bottom-message p {
-  margin: 0;
-  font-size: 11px;
-  letter-spacing: 0.04em;
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+
+  .cood-page {
+    padding: 30px 24px 55px;
+  }
+
+  .cood-hero {
+    padding: 48px 22px 42px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+  }
+
+  .cood-section {
+    margin-bottom: 60px;
+  }
+
+  .cood-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+  }
+
 }
 
 
@@ -476,10 +563,10 @@
    MOBILE
 ======================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 600px) {
 
   .cood-page {
-    padding: 20px 17px 45px;
+    padding: 20px 16px 45px;
   }
 
   .cood-hero {
@@ -488,16 +575,29 @@
     border-radius: 18px;
   }
 
-  .cood-hero p {
+  .cood-hero-description {
     font-size: 11px;
+  }
+
+  .cood-hero .decor-one {
+    left: 7%;
+  }
+
+  .cood-hero .decor-two {
+    right: 7%;
   }
 
   .cood-section {
     margin-bottom: 55px;
   }
 
-  .cood-section__heading h2 {
+  .cood-section .section-heading h2 {
     font-size: 24px;
+  }
+
+  .cood-section .section-number {
+    width: 37px;
+    height: 37px;
   }
 
   .cood-card-grid {
@@ -509,12 +609,38 @@
     padding: 17px;
   }
 
-  .cood-bottom-message {
-    gap: 9px;
+  .cood-list-heading {
+    font-size: 9px;
   }
 
-  .cood-bottom-message p {
+  .cood-howto {
+    padding: 14px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+
+  .cood-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .cood-hero-title {
+    font-size: 28px;
+  }
+
+  .cood-hero-description {
     font-size: 10px;
+  }
+
+  .cood-card__body {
+    padding: 15px;
   }
 
 }
