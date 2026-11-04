@@ -11,17 +11,18 @@
 ======================================== */
 
 html {
-  height: auto;
+  height: auto !important;
   min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 body {
-  height: auto;
+  height: auto !important;
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: #f4f2f7 !important;
 }
 
 
@@ -31,38 +32,56 @@ body {
 ======================================== */
 
 .cood-main {
-  display: block;
-  width: 100%;
-  min-width: 0;
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
   min-height: 100vh;
-  margin: 0 auto;
-  padding-top: calc(var(--topbar-h, 66px) + 20px);
-  padding-bottom: calc(var(--bottombar-h, 92px) + 30px);
+  margin: 0 !important;
+  padding:
+    calc(var(--topbar-h, 66px) + 16px)
+    0
+    calc(var(--bottombar-h, 92px) + 20px) !important;
   box-sizing: border-box;
+  background: transparent !important;
 }
 
-/* 共通CSSのスクロールコンテナ設定を解除 */
+/* 共通CSSのスクロールコンテナ・配置設定を解除 */
 .cood-main .content-frame {
-  display: block;
-  width: 100%;
-  max-width: none;
-  min-width: 0;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
   box-sizing: border-box;
+
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .cood-page {
+  position: relative;
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 20px 42px 50px;
+  padding: 10px 42px 50px;
   box-sizing: border-box;
   color: var(--ink, #55536a);
+  background: transparent !important;
 }
 
 
@@ -71,22 +90,37 @@ body {
    SKIN ARCHIVE風のシンプルな見出し
 ======================================== */
 
-.cood-hero {
+.cood-page .cood-hero {
   position: relative;
+  display: block !important;
+
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
   overflow: visible;
-  padding: 18px 0 30px;
-  margin-bottom: 45px;
+
+  padding: 10px 0 15px !important;
+  margin: 0 0 25px !important;
+
   text-align: left;
+
   border: none;
   border-radius: 0;
-  background: none;
-  box-shadow: none;
+  background: none !important;
+  box-shadow: none !important;
+
+  justify-content: initial !important;
+  align-items: initial !important;
 }
 
 .cood-hero .eyebrow {
   display: block;
-  margin: 0 0 10px;
+  margin: 0 0 8px !important;
+
   color: var(--lavender, #a38bbd);
+
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -94,8 +128,10 @@ body {
 }
 
 .cood-hero-title {
-  margin: 0;
+  margin: 0 !important;
+
   color: var(--ink, #55536a);
+
   font-family: "DM Sans", sans-serif;
   font-size: clamp(25px, 3vw, 34px);
   font-weight: 700;
@@ -109,19 +145,21 @@ body {
 }
 
 .cood-hero-description {
-  margin: 12px 0 0;
+  margin: 8px 0 0 !important;
+
   color: var(--muted, #9290a3);
+
   font-size: 12px;
   line-height: 1.8;
 }
 
 .cood-hero .text-link {
-  display: none;
+  display: none !important;
 }
 
 /* 飾りは非表示 */
 .cood-hero .hero-decoration {
-  display: none;
+  display: none !important;
 }
 
 
@@ -130,7 +168,9 @@ body {
 ======================================== */
 
 .cood-section {
+  margin-top: 0 !important;
   margin-bottom: 65px;
+  padding-top: 0 !important;
   scroll-margin-top: 100px;
 }
 
@@ -139,8 +179,10 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
+
   padding-bottom: 15px;
   margin-bottom: 18px;
+
   border-bottom: 1px solid var(--line, #eeeaf2);
 }
 
@@ -148,12 +190,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   width: 38px;
   height: 38px;
   flex-shrink: 0;
+
   border-radius: 50%;
   background: #f2edf7;
+
   color: var(--lavender, #a38bbd);
+
   font-family: "DM Sans", sans-serif;
   font-size: 11px;
   font-weight: 700;
@@ -161,7 +207,9 @@ body {
 
 .cood-section .section-heading .eyebrow {
   margin: 0 0 4px;
+
   color: var(--lavender, #a38bbd);
+
   font-family: "DM Sans", sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -170,7 +218,9 @@ body {
 
 .cood-section .section-heading h2 {
   margin: 0;
+
   color: var(--ink, #55536a);
+
   font-family: "DM Sans", sans-serif;
   font-size: 25px;
   font-weight: 700;
@@ -179,7 +229,9 @@ body {
 
 .cood-section .section-text {
   margin: 0 0 22px;
+
   color: var(--muted, #9290a3);
+
   font-size: 12px;
   line-height: 1.8;
 }
@@ -193,8 +245,10 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+
   padding: 16px 19px;
   margin-bottom: 25px;
+
   border: 1px solid #e9e1f0;
   border-radius: 13px;
   background: #faf8fc;
@@ -202,6 +256,7 @@ body {
 
 .cood-howto > .material-symbols-rounded {
   flex-shrink: 0;
+
   color: var(--lavender, #a38bbd);
   font-size: 21px;
 }
@@ -209,13 +264,16 @@ body {
 .cood-howto strong {
   display: block;
   margin-bottom: 5px;
+
   color: var(--ink, #55536a);
   font-size: 12px;
 }
 
 .cood-howto p {
   margin: 0;
+
   color: var(--muted, #9290a3);
+
   font-size: 11px;
   line-height: 1.8;
 }
@@ -239,10 +297,14 @@ body {
 .cood-card {
   min-width: 0;
   overflow: hidden;
+
   border: 1px solid var(--line, #eeeaf2);
   border-radius: 17px;
+
   background: #fff;
+
   box-shadow: 0 5px 18px rgba(85, 83, 106, 0.035);
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -250,21 +312,27 @@ body {
 
 .cood-card:hover {
   transform: translateY(-3px);
+
   box-shadow: 0 10px 25px rgba(85, 83, 106, 0.08);
 }
 
 .cood-card__image {
   position: relative;
+
   width: 100%;
   aspect-ratio: 16 / 9;
+
   overflow: hidden;
+
   background: linear-gradient(135deg, #e8f2fa, #f8eaf1);
 }
 
 .cood-card__image img {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
@@ -272,6 +340,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
   color: rgba(163, 139, 189, 0.6);
   font-size: 30px;
 }
@@ -282,18 +351,24 @@ body {
 
 .cood-card__title {
   margin: 0 0 9px;
+
   color: var(--ink, #55536a);
+
   font-size: 15px;
   font-weight: 700;
   line-height: 1.6;
+
   overflow-wrap: anywhere;
 }
 
 .cood-card__description {
   margin: 0 0 17px;
+
   color: var(--muted, #9290a3);
+
   font-size: 11px;
   line-height: 1.9;
+
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
@@ -307,11 +382,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+
   padding: 5px 10px;
   margin-bottom: 12px;
+
   border-radius: 30px;
   background: #f2edf7;
+
   color: var(--lavender, #a38bbd);
+
   font-size: 10px;
   font-weight: 700;
 }
@@ -334,7 +413,9 @@ body {
 .cood-code-label {
   display: block;
   margin-bottom: 7px;
+
   color: var(--muted, #9290a3);
+
   font-size: 10px;
   font-weight: 600;
 }
@@ -344,14 +425,19 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+
   width: 100%;
   padding: 12px 14px;
+
   border: 1px dashed #c9b8dc;
   border-radius: 10px;
+
   background: #faf8fc;
   color: var(--ink, #55536a);
+
   cursor: pointer;
   text-align: left;
+
   transition: background 0.2s ease;
 }
 
@@ -361,10 +447,12 @@ body {
 
 .cood-code-copy__value {
   min-width: 0;
+
   font-family: "DM Sans", sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
+
   overflow-wrap: anywhere;
 }
 
@@ -373,7 +461,9 @@ body {
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
+
   color: var(--lavender, #a38bbd);
+
   font-size: 10px;
   font-weight: 700;
 }
@@ -391,8 +481,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
+
   padding: 12px 13px;
   margin-top: 15px;
+
   border-radius: 10px;
   background: #f8f7fa;
 }
@@ -404,6 +496,7 @@ body {
 
 .cood-card__date-value {
   color: var(--ink, #55536a);
+
   font-family: "DM Sans", "Noto Sans JP", sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -415,8 +508,10 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+
   padding-top: 10px;
   margin-top: 8px;
+
   border-top: 1px solid #ece8f0;
 }
 
@@ -427,9 +522,11 @@ body {
 
 .cood-card__countdown-value {
   color: var(--lavender, #a38bbd);
+
   font-family: "DM Sans", "Noto Sans JP", sans-serif;
   font-size: 12px;
   font-weight: 700;
+
   text-align: right;
 }
 
@@ -441,6 +538,7 @@ body {
 .cood-card__footer {
   display: flex;
   justify-content: flex-end;
+
   margin-top: 15px;
 }
 
@@ -448,10 +546,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+
   color: var(--lavender, #a38bbd);
+
   font-size: 11px;
   font-weight: 700;
   text-decoration: none;
+
   transition: opacity 0.2s ease;
 }
 
@@ -472,12 +573,17 @@ body {
 .cood-empty,
 .cood-error {
   grid-column: 1 / -1;
+
   padding: 38px 20px;
+
   border: 1px dashed #e5ddea;
   border-radius: 15px;
+
   color: var(--muted, #9290a3);
+
   font-size: 12px;
   line-height: 1.8;
+
   text-align: center;
 }
 
@@ -493,18 +599,11 @@ body {
 
 /* ========================================
    CONTENT FOOTER
+   装飾フッターを非表示
 ======================================== */
 
 .cood-page .content-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 10px 5px;
-  color: var(--muted, #9290a3);
-}
-
-.cood-page .footer-sparkle {
-  color: var(--lavender, #a38bbd);
+  display: none !important;
 }
 
 
@@ -515,12 +614,12 @@ body {
 @media (max-width: 850px) {
 
   .cood-page {
-    padding: 20px 24px 45px;
+    padding: 10px 24px 45px;
   }
 
-  .cood-hero {
-    padding-top: 15px;
-    margin-bottom: 38px;
+  .cood-page .cood-hero {
+    padding: 10px 0 15px !important;
+    margin-bottom: 25px !important;
   }
 
   .cood-section {
@@ -542,17 +641,17 @@ body {
 @media (max-width: 600px) {
 
   .cood-main {
-    padding-top: calc(var(--topbar-h, 66px) + 12px);
-    padding-bottom: calc(var(--bottombar-h, 92px) + 20px);
+    padding-top: calc(var(--topbar-h, 66px) + 12px) !important;
+    padding-bottom: calc(var(--bottombar-h, 92px) + 20px) !important;
   }
 
   .cood-page {
-    padding: 15px 16px 35px;
+    padding: 8px 16px 35px;
   }
 
-  .cood-hero {
-    padding: 12px 0 25px;
-    margin-bottom: 35px;
+  .cood-page .cood-hero {
+    padding: 8px 0 12px !important;
+    margin-bottom: 22px !important;
   }
 
   .cood-hero-title {
